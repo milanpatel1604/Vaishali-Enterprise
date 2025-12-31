@@ -1,0 +1,176 @@
+.hanging-lamp-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* SVG for thread */
+.lamp-thread-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+/* Lamp body */
+.lamp {
+  position: absolute;
+  z-index: 10002;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+  pointer-events: auto;
+  user-select: none;
+}
+
+/* Lamp PNG image */
+.lamp-image {
+  width: 120px;
+  height: auto;
+  display: block;
+  position: relative;
+  margin-top: -10px;
+}
+
+/* Golden glow effects */
+.golden-glow {
+  position: absolute;
+  top: 80px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.5) 0%, rgba(212, 175, 55, 0.3) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite;
+  filter: blur(15px);
+  pointer-events: none;
+}
+
+.dark-mode .golden-glow {
+  background: radial-gradient(circle, rgba(244, 208, 63, 0.8) 0%, rgba(244, 208, 63, 0.5) 40%, transparent 70%);
+  filter: blur(20px);
+}
+
+.golden-glow-outer {
+  position: absolute;
+  top: 80px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.15) 40%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2s ease-in-out infinite 0.5s;
+  filter: blur(25px);
+  pointer-events: none;
+}
+
+.dark-mode .golden-glow-outer {
+  background: radial-gradient(circle, rgba(244, 208, 63, 0.6) 0%, rgba(244, 208, 63, 0.3) 40%, transparent 70%);
+  filter: blur(30px);
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.1);
+  }
+}
+
+/* Light cone */
+.light-cone {
+  position: absolute;
+  top: 90px;
+  left: 60%;
+  transform: translateX(-50%);
+  width: 260px;
+  height: 350px;
+  background: radial-gradient(ellipse at top, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.08) 40%, transparent 70%);
+  border-radius: 0 0 50% 50%;
+  filter: blur(12px);
+  animation: conePulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.dark-mode .light-cone {
+  background: radial-gradient(ellipse at top, rgba(244, 208, 63, 0.3) 0%, rgba(244, 208, 63, 0.15) 40%, transparent 70%);
+  filter: blur(15px);
+}
+
+@keyframes conePulse {
+  0%, 100% {
+    opacity: 0.6;
+    height: 330px;
+  }
+  50% {
+    opacity: 0.8;
+    height: 350px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lamp-image {
+    width: 70px;
+  }
+  
+  .lamp-image.mobile-lamp {
+    width: 100px;
+  }
+  
+  .golden-glow {
+    width: 80px;
+    height: 80px;
+    top: 90px;
+  }
+  
+  .golden-glow-outer {
+    width: 130px;
+    height: 130px;
+    top: 90px;
+  }
+  
+  .light-cone {
+    width: 320px;
+    height: 400px;
+    top: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lamp-image {
+    width: 50px;
+  }
+  
+  .lamp-image.mobile-lamp {
+    width: 90px;
+  }
+  
+  .golden-glow {
+    width: 70px;
+    height: 70px;
+    top: 85px;
+  }
+  
+  .golden-glow-outer {
+    width: 110px;
+    height: 110px;
+    top: 85px;
+  }
+  
+  .light-cone {
+    width: 280px;
+    height: 360px;
+    top: 95px;
+  }
+}
