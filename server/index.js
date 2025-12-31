@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -19,7 +20,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(() => console.log('✅ MongoDB Connected Successfully'))
 .catch(err => console.error('❌ MongoDB Connection Error:', err));
 
-// Routes
+// API Routes
 app.use('/api/products', require('./routes/products'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/expert', require('./routes/expert'));
@@ -28,6 +29,15 @@ app.use('/api/expert', require('./routes/expert'));
 app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to Vaishali Enterprise API' });
 });
+
+// Serve static files from React build
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 // Error handling middleware
 app.use((err, req, res, next) => {
