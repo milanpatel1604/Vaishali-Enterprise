@@ -260,7 +260,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Timeline
       <section className="timeline-section section">
         <div className="container">
           <div className="section-title">
@@ -288,7 +288,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="why-section section">

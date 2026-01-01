@@ -1,235 +1,100 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { FaSearch, FaFilter, FaTh, FaList } from 'react-icons/fa';
-import axios from 'axios';
+import React from 'react';
 import { motion } from 'framer-motion';
 import './Products.css';
 
 const Products = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || '');
-  const [selectedGrade, setSelectedGrade] = useState(searchParams.get('grade') || '');
-  const [viewMode, setViewMode] = useState('grid');
-
-  const categories = [
-    'All',
-    'High Gloss',
-    'Matte Finish',
-    'Textured',
-    'Wood Finish',
-    'Solid Colors',
-    'Digital Print'
-  ];
-
-  const grades = ['All', 'A', 'B'];
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  useEffect(() => {
-    filterProducts();
-  }, [searchTerm, selectedCategory, selectedGrade, products]);
-
-  const fetchProducts = async () => {
-    try {
-      const response = await axios.get('/api/products');
-      setProducts(response.data);
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      setLoading(false);
-      // Set sample data for demo
-      setProducts(getSampleProducts());
-    }
-  };
-
-  const getSampleProducts = () => [
+  const laminateDesigns = [
     {
-      _id: '1',
-      name: 'Premium Oak Wood',
-      code: 'VE-WF-001',
+      id: 1,
+      name: 'Bleached Cork',
+      category: 'Natural Textures',
+      description: 'A refined natural cork texture with bleached finish, perfect for creating warm, organic spaces with a contemporary twist.',
+      designImage: '/images/products/fancy_usages/Bleeched_cork.png',
+      usageImage: '/images/products/fancy_usages/Bleeched_cork_usage.png',
+      features: ['Eco-friendly', 'Sound absorption', 'Warm aesthetic']
+    },
+    {
+      id: 2,
+      name: 'Brescan Splash',
+      category: 'Contemporary',
+      description: 'Dynamic splash pattern that brings energy and movement to modern interiors, ideal for statement walls and feature surfaces.',
+      designImage: '/images/products/fancy_usages/brescan_splash.png',
+      usageImage: '/images/products/fancy_usages/brescan_splash_usage.png',
+      features: ['Bold design', 'Modern appeal', 'Unique pattern']
+    },
+    {
+      id: 3,
+      name: 'Columbian Sepia',
       category: 'Wood Finish',
-      grade: 'A',
-      finish: 'Wood Texture',
-      description: 'Natural oak wood finish with realistic texture',
-      image: 'https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=500&h=500&fit=crop',
-      isNew: true,
-      inStock: true
+      description: 'Rich sepia-toned wood grain that adds depth and sophistication to any space, perfect for classic and transitional designs.',
+      designImage: '/images/products/fancy_usages/columbian_sepia.png',
+      usageImage: '/images/products/fancy_usages/columbian_sepia_usage.png',
+      features: ['Classic elegance', 'Rich tones', 'Versatile']
     },
     {
-      _id: '2',
-      name: 'Crystal White Gloss',
-      code: 'VE-HG-002',
-      category: 'High Gloss',
-      grade: 'A',
-      finish: 'High Gloss',
-      description: 'Brilliant white high gloss finish',
-      image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=500&h=500&fit=crop',
-      isBestSeller: true,
-      inStock: true
+      id: 4,
+      name: 'Designer Collection',
+      category: 'Premium',
+      description: 'Exclusive designer pattern featuring intricate details and premium finish for luxury interiors and high-end commercial spaces.',
+      designImage: '/images/products/fancy_usages/designer.png',
+      usageImage: '/images/products/fancy_usages/designer_usage.png',
+      features: ['Luxury finish', 'Intricate details', 'Premium quality']
     },
     {
-      _id: '3',
-      name: 'Textured Grey Stone',
-      code: 'VE-TX-003',
-      category: 'Textured',
-      grade: 'B',
-      finish: 'Stone Texture',
-      description: 'Contemporary grey with stone texture',
-      image: 'https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=500&h=500&fit=crop',
-      isNew: true,
-      inStock: true
+      id: 5,
+      name: 'Fade Triton',
+      category: 'Contemporary',
+      description: 'Subtle fade effect with triton undertones, creating a serene ambiance perfect for modern minimalist and coastal-inspired designs.',
+      designImage: '/images/products/fancy_usages/Fade_triton.png',
+      usageImage: '/images/products/fancy_usages/Fade_triton_usage.png',
+      features: ['Soft gradients', 'Calming effect', 'Modern minimal']
     },
     {
-      _id: '4',
-      name: 'Matte Black Elegance',
-      code: 'VE-MF-004',
-      category: 'Matte Finish',
-      grade: 'A',
-      finish: 'Matte',
-      description: 'Sophisticated matte black finish',
-      image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&h=500&fit=crop',
-      isBestSeller: true,
-      inStock: true
+      id: 6,
+      name: 'Hellenic Taupe',
+      category: 'Neutral Tones',
+      description: 'Timeless taupe with Hellenic influences, offering a sophisticated neutral palette that complements any interior style.',
+      designImage: '/images/products/fancy_usages/helenic_taupe.png',
+      usageImage: '/images/products/fancy_usages/helenic_taupe_usage.png',
+      features: ['Neutral elegance', 'Timeless', 'Versatile pairing']
     },
     {
-      _id: '5',
-      name: 'Marble Carrara',
-      code: 'VE-DP-005',
-      category: 'Digital Print',
-      grade: 'A',
-      finish: 'Digital HD',
-      description: 'Realistic Carrara marble digital print',
-      image: 'https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=500&h=500&fit=crop',
-      isBestSeller: true,
-      inStock: true
-    },
-    {
-      _id: '6',
-      name: 'Walnut Wood',
-      code: 'VE-WF-006',
+      id: 7,
+      name: 'Smoked Brose Pecan',
       category: 'Wood Finish',
-      grade: 'B',
-      finish: 'Wood Texture',
-      description: 'Rich walnut wood finish',
-      image: 'https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=500&h=500&fit=crop',
-      isBestSeller: true,
-      inStock: true
+      description: 'Smoky pecan wood with brose finish creates a warm, inviting atmosphere with distinctive character and natural appeal.',
+      designImage: '/images/products/fancy_usages/smoked_brose_pecan.png',
+      usageImage: '/images/products/fancy_usages/smoked_brose_pecan_usage.png',
+      features: ['Warm tones', 'Natural grain', 'Distinctive character']
     },
     {
-      _id: '7',
-      name: 'Solid Red',
-      code: 'VE-SC-007',
-      category: 'Solid Colors',
-      grade: 'A',
-      finish: 'Matte',
-      description: 'Vibrant solid red color',
-      image: 'https://images.pexels.com/photos/6510361/pexels-photo-6510361.jpeg?w=500&h=500&fit=crop',
-      inStock: true
-    },
-    {
-      _id: '8',
-      name: 'Beige Elegance',
-      code: 'VE-SC-008',
-      category: 'Solid Colors',
-      grade: 'B',
-      finish: 'Matte',
-      description: 'Warm beige solid color',
-      image: 'https://images.pexels.com/photos/6045266/pexels-photo-6045266.jpeg?w=500&h=500&fit=crop',
-      inStock: true
-    },
-    {
-      _id: '9',
-      name: 'High Gloss Navy',
-      code: 'VE-HG-009',
-      category: 'High Gloss',
-      grade: 'A',
-      finish: 'High Gloss',
-      description: 'Deep navy blue with brilliant gloss',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&h=500&fit=crop',
-      isNew: true,
-      inStock: true
-    },
-    {
-      _id: '10',
-      name: 'Teak Wood Premium',
-      code: 'VE-WF-010',
+      id: 8,
+      name: 'Sumatra Chestnut',
       category: 'Wood Finish',
-      grade: 'A',
-      finish: 'Wood Texture',
-      description: 'Premium teak wood finish',
-      image: 'https://images.unsplash.com/photo-1565183928294-7d22f3d628ab?w=500&h=500&fit=crop',
-      isBestSeller: true,
-      inStock: true
+      description: 'Exotic Sumatra chestnut featuring deep, rich tones and authentic wood grain for spaces that demand natural elegance.',
+      designImage: '/images/products/fancy_usages/sumatra_chestnut.png',
+      usageImage: '/images/products/fancy_usages/sumatra_chestnut_usage.png',
+      features: ['Exotic appeal', 'Deep rich tones', 'Authentic grain']
     },
     {
-      _id: '11',
-      name: 'Textured Concrete',
-      code: 'VE-TX-011',
-      category: 'Textured',
-      grade: 'B',
-      finish: 'Concrete Texture',
-      description: 'Industrial concrete texture',
-      image: 'https://images.unsplash.com/photo-1511818966892-d7d671e672a2?w=500&h=500&fit=crop',
-      inStock: true
+      id: 9,
+      name: 'Tough Marble',
+      category: 'Stone Effect',
+      description: 'Durable marble effect laminate combining the luxury of marble with superior toughness, ideal for high-traffic areas.',
+      designImage: '/images/products/fancy_usages/tough_marble.png',
+      usageImage: '/images/products/fancy_usages/tough_marble_usage.png',
+      features: ['Marble luxury', 'High durability', 'Easy maintenance']
     },
     {
-      _id: '12',
-      name: 'Granite Black Digital',
-      code: 'VE-DP-012',
-      category: 'Digital Print',
-      grade: 'A',
-      finish: 'Digital HD',
-      description: 'Black granite digital print',
-      image: 'https://images.unsplash.com/photo-1594398569065-8cdb7feb2540?w=500&h=500&fit=crop',
-      isNew: true,
-      inStock: true
+      id: 10,
+      name: 'Wood Finish Classic',
+      category: 'Wood Finish',
+      description: 'Timeless wood finish that brings natural warmth and classic beauty, perfect for traditional and contemporary interiors alike.',
+      designImage: '/images/products/fancy_usages/wood_finish.png',
+      usageImage: '/images/products/fancy_usages/wood_finish_usage.png',
+      features: ['Classic beauty', 'Natural warmth', 'Universal appeal']
     }
   ];
-
-  const filterProducts = () => {
-    let filtered = [...products];
-
-    // Filter by search term
-    if (searchTerm) {
-      filtered = filtered.filter(
-        product =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          product.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          product.description?.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-
-    // Filter by category
-    if (selectedCategory && selectedCategory !== 'All') {
-      filtered = filtered.filter(product => product.category === selectedCategory);
-    }
-
-    // Filter by grade
-    if (selectedGrade && selectedGrade !== 'All') {
-      filtered = filtered.filter(product => product.grade === selectedGrade);
-    }
-
-    setFilteredProducts(filtered);
-  };
-
-  const handleCategoryChange = (category) => {
-    setSelectedCategory(category === 'All' ? '' : category);
-    if (category !== 'All') {
-      setSearchParams({ category });
-    } else {
-      setSearchParams({});
-    }
-  };
-
-  const handleGradeChange = (grade) => {
-    setSelectedGrade(grade === 'All' ? '' : grade);
-  };
 
   return (
     <div className="products-page">
@@ -241,119 +106,69 @@ const Products = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1>Our Products</h1>
-            <p>Explore our extensive collection of premium laminates</p>
+            <h1>Premium Laminate Collection</h1>
+            <p>Discover exquisite designs that transform spaces into stunning masterpieces</p>
           </motion.div>
         </div>
       </div>
 
-      {/* Filters and Search */}
-      <div className="filters-section">
+      {/* Laminate Showcase */}
+      <section className="laminate-showcase section">
         <div className="container">
-          <div className="filters-container">
-            {/* Search Bar */}
-            <div className="search-box">
-              <FaSearch />
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-
-            {/* View Mode Toggle */}
-            <div className="view-toggle">
-              <button
-                className={viewMode === 'grid' ? 'active' : ''}
-                onClick={() => setViewMode('grid')}
-              >
-                <FaTh />
-              </button>
-              <button
-                className={viewMode === 'list' ? 'active' : ''}
-                onClick={() => setViewMode('list')}
-              >
-                <FaList />
-              </button>
-            </div>
-          </div>
-
-          {/* Category Filters */}
-          <div className="category-filters">
-            <span className="filter-label">
-              <FaFilter /> Categories:
-            </span>
-            <div className="filter-buttons">
-              {categories.map(category => (
-                <button
-                  key={category}
-                  className={`filter-btn ${
-                    (category === 'All' && !selectedCategory) ||
-                    selectedCategory === category
-                      ? 'active'
-                      : ''
-                  }`}
-                  onClick={() => handleCategoryChange(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Results Count */}
-          <div className="results-count">
-            Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
-          </div>
-        </div>
-      </div>
-
-      {/* Products Grid/List */}
-      <section className="products-section section">
-        <div className="container">
-          {loading ? (
-            <div className="loading">
-              <div className="spinner"></div>
-            </div>
-          ) : filteredProducts.length === 0 ? (
-            <div className="no-products">
-              <h3>No products found</h3>
-              <p>Try adjusting your filters or search term</p>
-            </div>
-          ) : (
-            <div className={`products-${viewMode}`}>
-              {filteredProducts.map((product, index) => (
+          {laminateDesigns.map((laminate, index) => (
+            <motion.article
+              key={laminate.id}
+              className={`laminate-article ${index % 2 === 0 ? 'reverse' : ''}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-100px' }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="laminate-images">
                 <motion.div
-                  key={product._id}
-                  className={`product-card ${viewMode}`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  className="design-image-container"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="product-image">
-                    <img src={product.image} alt={product.name} />
-                    {product.isNew && <span className="badge badge-new">New</span>}
-                    {product.isBestSeller && <span className="badge badge-bestseller">Best Seller</span>}
-                    {!product.inStock && <span className="badge badge-out">Out of Stock</span>}
-                  </div>
-                  <div className="product-details">
-                    <div className="product-header">
-                      <span className="product-grade">Grade {product.grade}</span>
-                      <span className="product-finish">{product.finish}</span>
-                    </div>
-                    <h3>{product.name}</h3>
-                    <p className="product-code">Code: {product.code}</p>
-                    <p className="product-description">{product.description}</p>
-                    <div className="product-footer">
-                      <span className="product-category">{product.category}</span>
-                      <button className="btn btn-primary btn-sm">Get Quote</button>
-                    </div>
+                  <img
+                    src={laminate.designImage}
+                    alt={`${laminate.name} design`}
+                    className="design-image"
+                  />
+                  <div className="image-overlay">
+                    <span>Design Pattern</span>
                   </div>
                 </motion.div>
-              ))}
-            </div>
-          )}
+                <motion.div
+                  className="usage-image-container"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <img
+                    src={laminate.usageImage}
+                    alt={`${laminate.name} in use`}
+                    className="usage-image"
+                  />
+                  <div className="image-overlay">
+                    <span>Real Application</span>
+                  </div>
+                </motion.div>
+              </div>
+
+              <div className="laminate-content">
+                <div className="category-badge">{laminate.category}</div>
+                <h2>{laminate.name}</h2>
+                <p className="description">{laminate.description}</p>
+                <div className="features-list">
+                  {laminate.features.map((feature, idx) => (
+                    <span key={idx} className="feature-tag">
+                      ✓ {feature}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </section>
     </div>

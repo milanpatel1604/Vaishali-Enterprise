@@ -113,27 +113,16 @@ const Home = ({ onExpertClick }) => {
     }
   ];
 
-  const categories = [
-    {
-      name: 'High Gloss',
-      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=500&h=400&fit=crop',
-      count: '50+ Designs'
-    },
-    {
-      name: 'Wood Finish',
-      image: 'https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=500&h=400&fit=crop',
-      count: '80+ Designs'
-    },
-    {
-      name: 'Matte Finish',
-      image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=500&h=400&fit=crop',
-      count: '60+ Designs'
-    },
-    {
-      name: 'Textured',
-      image: 'https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=500&h=400&fit=crop',
-      count: '45+ Designs'
-    }
+  const brands = [
+    { name: 'Pegasus Panel', website: 'https://www.dorbypanels.com/' },
+    { name: 'Surfica India', website: 'http://surfica.in/' },
+    { name: 'Fasten Laminate', website: 'http://www.fastenlaminate.com/' },
+    { name: 'Sarvottam Laminate', website: 'https://www.sarvottamdecor.in/' },
+    { name: 'Abhiyan Laminate', website: 'https://www.abhiyanlam.in/' },
+    { name: 'Vee Decor', website: 'https://www.laminatesheets.in/vee-decor-laminate-sheet-5639504.html' },
+    { name: 'Alfa Ica', website: 'https://alfaica.com/' },
+    { name: 'Airolam Ltd', website: 'https://www.airolam.com/' },
+    { name: 'Cedar Decor Ltd', website: 'https://www.cedarindia.com/' }
   ];
 
   const whyChooseUs = [
@@ -163,7 +152,7 @@ const Home = ({ onExpertClick }) => {
             transition={{ duration: 0.8 }}
           >
             <div>
-              ✨ Trusted Since 2008
+              ✨ Trusted Since 2004
             </div>
             <h1 className="hero-title">
               <span className="title-line">Crafting Excellence in</span>
@@ -238,38 +227,32 @@ const Home = ({ onExpertClick }) => {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="categories section">
+      {/* Brands Section */}
+      <section className="brands section">
         <div className="container">
           <div className="section-title">
-            <h2>Shop By Category</h2>
+            <h2>We Are Dealing With</h2>
             <div className="underline"></div>
-            <p className="subtitle">Explore our diverse range of laminate finishes</p>
+            <p className="subtitle">Trusted premium laminate brands we partner with</p>
           </div>
 
-          <div className="categories-grid">
-            {categories.map((category, index) => (
-              <motion.div
+          <div className="brands-list">
+            {brands.map((brand, index) => (
+              <motion.a
                 key={index}
-                className="category-card"
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                href={brand.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brand-link"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ x: 10 }}
               >
-                <Link to={`/products?category=${category.name}`}>
-                  <div className="category-image">
-                    <img src={category.image} alt={category.name} />
-                    <div className="category-overlay">
-                      <span className="view-more">View Collection</span>
-                    </div>
-                  </div>
-                  <div className="category-info">
-                    <h3>{category.name}</h3>
-                    <p>{category.count}</p>
-                  </div>
-                </Link>
-              </motion.div>
+                <span className="brand-arrow">→</span>
+                <span className="brand-text">{brand.name}</span>
+              </motion.a>
             ))}
           </div>
         </div>
