@@ -3,6 +3,15 @@ import { motion } from 'framer-motion';
 import './Products.css';
 
 const Products = () => {
+  const newShades = [
+    { name: 'Acacia Green', image: '/images/products/new_shades/acacia_green.png', color: '#7A9B76' },
+    { name: 'English Green', image: '/images/products/new_shades/english_green.png', color: '#4A6741' },
+    { name: 'Eucalyptus Green', image: '/images/products/new_shades/eucalyptus_green.png', color: '#5F8A73' },
+    { name: 'Khyber Blue', image: '/images/products/new_shades/khyber_blue.png', color: '#4A6B8A' },
+    { name: 'Ocean Blue', image: '/images/products/new_shades/ocean_blue.png', color: '#2C5F7E' },
+    { name: 'Sky Blue', image: '/images/products/new_shades/sky_blue.png', color: '#87CEEB' }
+  ];
+
   const laminateDesigns = [
     {
       id: 1,
@@ -111,6 +120,41 @@ const Products = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* New Shades Collection */}
+      <section className="new-shades-section section">
+        <div className="container">
+          <motion.div
+            className="section-header"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="section-title">New Shades Collection</h2>
+            <p className="section-subtitle">Explore our latest color palette</p>
+          </motion.div>
+
+          <div className="shades-row">
+            {newShades.map((shade, index) => (
+              <div
+                key={index}
+                className="shade-card"
+                style={{ zIndex: newShades.length - index }}
+              >
+                <div className="shade-image-wrapper">
+                  <img
+                    src={shade.image}
+                    alt={shade.name}
+                    className="shade-thumbnail"
+                  />
+                </div>
+                <div className="shade-color-name">{shade.name}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Laminate Showcase */}
       <section className="laminate-showcase section">

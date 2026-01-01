@@ -69,7 +69,7 @@ const Navbar = ({ scrolled, onExpertClick }) => {
               <span className="slider"></span>
             </label>
           </div>
-          <button className="icon-btn location-btn" onClick={() => window.open('https://maps.google.com/?q=Vaishali+Enterprise', '_blank')} title="Our Location">
+          <button className="icon-btn location-btn" onClick={() => window.open('https://www.google.com/maps/place/Vaishali+enterprise/@23.2335309,72.4784691,17z/data=!3m1!4b1!4m6!3m5!1s0x395c277f91a0dfb1:0xeca21b0809d02c80!8m2!3d23.2335309!4d72.478469!16s%2Fg%2F11y2zvbxqy', '_blank')} title="Our Location">
             <FaMapMarkerAlt />
           </button>
           <button className="icon-btn expert-btn" onClick={onExpertClick} title="Talk to Expert">

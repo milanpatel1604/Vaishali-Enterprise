@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
@@ -13,80 +12,42 @@ import axios from 'axios';
 import './Home.css';
 
 const Home = ({ onExpertClick }) => {
-  const [featuredProducts, setFeaturedProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchFeaturedProducts();
-  }, []);
-
-  const fetchFeaturedProducts = async () => {
-    try {
-      const response = await axios.get('/api/products?limit=6');
-      setFeaturedProducts(response.data.slice(0, 6));
-      setLoading(false);
-    } catch (error) {
-      console.error('Error fetching products:', error);
-      setLoading(false);
-      // Set sample data for demo
-      setFeaturedProducts(getSampleProducts());
-    }
-  };
-
-  const getSampleProducts = () => [
+  const featuredLaminates = [
     {
-      _id: '1',
-      name: 'Premium Wood Finish',
-      code: 'VE-WF-001',
-      category: 'Wood Finish',
-      grade: 'A',
-      image: 'https://images.unsplash.com/photo-1541123603104-512919d6a96c?w=400&h=400&fit=crop',
-      isNew: true
+      id: 1,
+      name: 'Bleached Cork',
+      category: 'Natural Textures',
+      description: 'A refined natural cork texture with bleached finish, perfect for creating warm, organic spaces.',
+      designImage: '/images/products/fancy_usages/Bleeched_cork.png',
+      usageImage: '/images/products/fancy_usages/Bleeched_cork_usage.png',
+      features: ['Eco-friendly', 'Sound absorption', 'Warm aesthetic']
     },
     {
-      _id: '2',
-      name: 'High Gloss White',
-      code: 'VE-HG-002',
-      category: 'High Gloss',
-      grade: 'A',
-      image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?w=400&h=400&fit=crop',
-      isBestSeller: true
+      id: 2,
+      name: 'Brescan Splash',
+      category: 'Contemporary',
+      description: 'Dynamic splash pattern that brings energy and movement to modern interiors.',
+      designImage: '/images/products/fancy_usages/brescan_splash.png',
+      usageImage: '/images/products/fancy_usages/brescan_splash_usage.png',
+      features: ['Bold design', 'Modern appeal', 'Unique pattern']
     },
     {
-      _id: '3',
-      name: 'Textured Grey',
-      code: 'VE-TX-003',
-      category: 'Textured',
-      grade: 'B',
-      image: 'https://images.unsplash.com/photo-1628744876497-eb30460be9f6?w=400&h=400&fit=crop',
-      isNew: true
+      id: 3,
+      name: 'Designer Collection',
+      category: 'Premium',
+      description: 'Exclusive designer pattern featuring intricate details and premium finish for luxury interiors.',
+      designImage: '/images/products/fancy_usages/designer.png',
+      usageImage: '/images/products/fancy_usages/designer_usage.png',
+      features: ['Luxury finish', 'Intricate details', 'Premium quality']
     },
     {
-      _id: '4',
-      name: 'Matte Black',
-      code: 'VE-MF-004',
-      category: 'Matte Finish',
-      grade: 'A',
-      image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=400&h=400&fit=crop',
-      isBestSeller: true
-    },
-    {
-      _id: '5',
-      name: 'Marble Effect',
-      code: 'VE-ME-005',
-      category: 'Digital Print',
-      grade: 'A',
-      image: 'https://images.unsplash.com/photo-1615971677499-5467cbab01c0?w=400&h=400&fit=crop',
-      isNew: true
-    },
-    {
-      _id: '6',
-      name: 'Oak Wood',
-      code: 'VE-WF-006',
-      category: 'Wood Finish',
-      grade: 'B',
-      image: 'https://images.unsplash.com/photo-1565183928294-7d22f3d628ab?w=400&h=400&fit=crop',
-      isBestSeller: true
+      id: 4,
+      name: 'Tough Marble',
+      category: 'Stone Effect',
+      description: 'Durable marble effect laminate combining the luxury of marble with superior toughness.',
+      designImage: '/images/products/fancy_usages/tough_marble.png',
+      usageImage: '/images/products/fancy_usages/tough_marble_usage.png',
+      features: ['Marble luxury', 'High durability', 'Easy maintenance']
     }
   ];
 
@@ -151,7 +112,7 @@ const Home = ({ onExpertClick }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div>
+            <div className="trust-text">
               ✨ Trusted Since 2004
             </div>
             <h1 className="hero-title">
@@ -267,41 +228,39 @@ const Home = ({ onExpertClick }) => {
             <p className="subtitle">Handpicked selection from our premium collection</p>
           </div>
 
-          {loading ? (
-            <div className="loading">
-              <div className="spinner"></div>
-            </div>
-          ) : (
-            <div className="products-grid">
-              {featuredProducts.map((product, index) => (
-                <motion.div
-                  key={product._id}
-                  className="product-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="product-image">
-                    <img src={product.image} alt={product.name} />
-                    {product.isNew && <span className="badge badge-new">New</span>}
-                    {product.isBestSeller && <span className="badge badge-bestseller">Best Seller</span>}
-                    <div className="product-overlay">
-                      <button className="btn btn-primary" onClick={onExpertClick}>
-                        Get Quote
-                      </button>
-                    </div>
+          <div className="featured-laminates-grid">
+            {featuredLaminates.map((laminate, index) => (
+              <motion.div
+                key={laminate.id}
+                className="featured-laminate-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="laminate-images-showcase">
+                  <div className="design-preview">
+                    <img src={laminate.designImage} alt={laminate.name} />
+                    <span className="category-badge">{laminate.category}</span>
                   </div>
-                  <div className="product-info">
-                    <span className="product-grade">Grade {product.grade}</span>
-                    <h3>{product.name}</h3>
-                    <p className="product-code">{product.code}</p>
-                    <span className="product-category">{product.category}</span>
+                  <div className="usage-preview">
+                    <img src={laminate.usageImage} alt={`${laminate.name} usage`} />
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
+                </div>
+                <div className="laminate-content">
+                  <h3>{laminate.name}</h3>
+                  <p className="laminate-description">{laminate.description}</p>
+                  <div className="laminate-features">
+                    {laminate.features.map((feature, idx) => (
+                      <span key={idx} className="feature-tag">
+                        <FaCheckCircle /> {feature}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
           <div className="section-cta">
             <Link to="/products" className="btn btn-primary">
@@ -347,7 +306,7 @@ const Home = ({ onExpertClick }) => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=600&h=700&fit=crop" 
+                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=700&fit=crop" 
                 alt="Why Choose Us" 
               />
             </motion.div>

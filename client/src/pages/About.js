@@ -183,7 +183,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&h=600&fit=crop" 
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&h=600&fit=crop" 
                 alt="Our Office" 
               />
             </motion.div>
@@ -301,7 +301,7 @@ const About = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600" 
+                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600" 
                 alt="Team" 
               />
             </motion.div>

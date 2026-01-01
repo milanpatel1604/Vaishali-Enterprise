@@ -77,7 +77,16 @@ const Footer = ({ onExpertClick }) => {
               <ul className="footer-contact">
                 <li>
                   <FaMapMarkerAlt />
-                  <span>123 Business District,<br />Mumbai, Maharashtra 400001</span>
+                  <a 
+                    href="https://www.google.com/maps/place/Vaishali+enterprise/@23.2335309,72.4784691,17z/data=!3m1!4b1!4m6!3m5!1s0x395c277f91a0dfb1:0xeca21b0809d02c80!8m2!3d23.2335309!4d72.478469!16s%2Fg%2F11y2zvbxqy"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="location-link"
+                  >
+                    Vaishali enterprise<br />
+                    Radheshyamnagar society,<br />
+                    Kalol, Gujarat 382721
+                  </a>
                 </li>
                 <li>
                   <FaPhone />
@@ -85,7 +94,7 @@ const Footer = ({ onExpertClick }) => {
                 </li>
                 <li>
                   <FaEnvelope />
-                  <a href="mailto:info@vaishali-enterprise.com">info@vaishali-enterprise.com</a>
+                  <a href="mailto:vaishali.laminates@gmail.com">vaishali.laminates@gmail.com</a>
                 </li>
                 <li>
                   <FaWhatsapp />

@@ -86,6 +86,15 @@
   margin: 0;
 }
 
+.trust-text {
+  margin-bottom: 20px;
+  color: inherit;
+}
+
+.dark-mode .trust-text {
+  color: #ffffff !important;
+}
+
 .hero-badge {
   display: inline-block;
   padding: 8px 20px;
@@ -689,6 +698,144 @@
   font-size: 0.95rem;
 }
 
+/* Featured Laminates Professional Grid */
+.featured-laminates-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.featured-laminate-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.dark-mode .featured-laminate-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featured-laminate-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.25);
+  border-color: var(--secondary-color);
+}
+
+.dark-mode .featured-laminate-card:hover {
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.35);
+}
+
+.laminate-images-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  height: 300px;
+  position: relative;
+}
+
+.design-preview,
+.usage-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.design-preview {
+  border-right: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.design-preview img,
+.usage-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featured-laminate-card:hover .design-preview img,
+.featured-laminate-card:hover .usage-preview img {
+  transform: scale(1.08);
+}
+
+.category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--secondary-color);
+  color: var(--text-dark);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 2;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.laminate-content {
+  padding: 30px;
+}
+
+.laminate-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.dark-mode .laminate-content h3 {
+  color: var(--text-light);
+}
+
+.laminate-description {
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.laminate-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .feature-tag {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--text-light);
+}
+
+.feature-tag svg {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+}
+
+.feature-tag:hover {
+  background: rgba(212, 175, 55, 0.2);
+  border-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
 /* Why Choose Us */
 .why-choose {
   background: var(--bg-light);
@@ -797,6 +944,11 @@
   .products-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .featured-laminates-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -853,13 +1005,34 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .featured-laminates-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .laminate-images-showcase {
+    height: 250px;
+  }
+
+  .laminate-content {
+    padding: 25px;
+  }
+
+  .laminate-content h3 {
+    font-size: 1.3rem;
+  }
+
   .why-choose-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
+  .why-choose-right {
+    display: none;
+  }
+
   .why-choose-left h2 {
-    font-size: 2rem;
+    font-size: 2rem; 
   }
 
   .cta-content h2 {
@@ -916,8 +1089,30 @@
   .brands-list,
   .brands-grid,
   .categories-grid,
-  .products-grid {
+  .products-grid,
+  .featured-laminates-grid {
     grid-template-columns: 1fr;
+  }
+
+  .laminate-images-showcase {
+    height: 220px;
+  }
+
+  .laminate-content {
+    padding: 20px;
+  }
+
+  .laminate-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .laminate-description {
+    font-size: 0.9rem;
+  }
+
+  .feature-tag {
+    font-size: 0.8rem;
+    padding: 5px 12px;
   }
 
   .brand-link {
@@ -994,6 +1189,7 @@
   .btn-hero {
     padding: 12px 25px;
     font-size: 0.95rem;
+    margin-bottom: 10px;
   }
 
   .why-choose-left h2 {

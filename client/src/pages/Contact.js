@@ -28,7 +28,7 @@ const Contact = () => {
       icon: <FaMapMarkerAlt />,
       title: 'Visit Us',
       details: ['123 Business District', 'Mumbai, Maharashtra 400001', 'India'],
-      link: 'https://maps.google.com'
+      link: 'https://www.google.com/maps?q=23.23345204326506,72.47957175098672'
     },
     {
       icon: <FaPhone />,
@@ -39,8 +39,8 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: 'Email Us',
-      details: ['info@vaishali-enterprise.com', 'sales@vaishali-enterprise.com'],
-      link: 'mailto:info@vaishali-enterprise.com'
+      details: ['vaishali.laminates@gmail.com'],
+      link: 'mailto:vaishali.laminates@gmail.com'
     },
     {
       icon: <FaClock />,
@@ -231,11 +231,11 @@ const Contact = () => {
                   </div>
                 </a>
 
-                <a href="mailto:info@vaishali-enterprise.com" className="quick-contact-item">
+                <a href="mailto:vaishali.laminates@gmail.com" className="quick-contact-item">
                   <FaEnvelope />
                   <div>
                     <h4>Email Support</h4>
-                    <span>info@vaishali-enterprise.com</span>
+                    <span>vaishali.laminates@gmail.com</span>
                   </div>
                 </a>
               </div>
@@ -244,12 +244,13 @@ const Contact = () => {
               <div className="map-container">
                 <iframe
                   title="Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995709657!3d19.082502003498824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1234567890"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1570.0178342866316!2d72.47846912768681!3d23.233530895855736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c277f91a0dfb1%3A0xeca21b0809d02c80!2sVaishali%20enterprise!5e0!3m2!1sen!2sin!4v1767264494507!5m2!1sen!2sin"
                   width="100%"
-                  height="300"
+                  height="450"
                   style={{ border: 0, borderRadius: '12px' }}
                   allowFullScreen=""
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </motion.div>
