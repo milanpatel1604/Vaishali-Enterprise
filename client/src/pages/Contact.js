@@ -33,8 +33,8 @@ const Contact = () => {
     {
       icon: <FaPhone />,
       title: 'Call Us',
-      details: ['+91 98765 43210', '+91 98765 43211'],
-      link: 'tel:+919876543210'
+      details: ['+91 95747 76776'],
+      link: 'tel:+919574776776'
     },
     {
       icon: <FaEnvelope />,

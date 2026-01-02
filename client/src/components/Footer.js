@@ -90,7 +90,7 @@ const Footer = ({ onExpertClick }) => {
                 </li>
                 <li>
                   <FaPhone />
-                  <a href="tel:+919876543210">+91 98765 43210</a>
+                  <a href="tel:+919574776776">+91 95747 76776</a>
                 </li>
                 <li>
                   <FaEnvelope />
@@ -98,7 +98,7 @@ const Footer = ({ onExpertClick }) => {
                 </li>
                 <li>
                   <FaWhatsapp />
-                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/919574776776" target="_blank" rel="noopener noreferrer">
                     WhatsApp Us
                   </a>
                 </li>

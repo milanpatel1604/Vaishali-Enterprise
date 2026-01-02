@@ -64,7 +64,7 @@ const TalkToExpertPopup = ({ onClose }) => {
         <div className="call-option">
           <FaPhone className="call-icon" />
           <span className="call-text">Request or Call us directly at</span>
-          <a href="tel:+919876543210" className="phone-link">+91 98765 43210</a>
+          <a href="tel:+919574776776" className="phone-link">+91 95747 76776</a>
         </div>
         <form onSubmit={handleSubmit} className="expert-form">
           {message.text && (
