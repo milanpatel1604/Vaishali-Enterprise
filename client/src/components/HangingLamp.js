@@ -113,7 +113,7 @@ const HangingLamp = () => {
         onMouseDown={(e) => handleLampMouseDown('lamp1', e)}
       >
         <img 
-          src="/images/hanging_lamp.png" 
+          src={`${process.env.PUBLIC_URL}/images/hanging_lamp.png`}
           alt="Pendant Lamp 1"
           className={`lamp-image ${isMobile ? 'mobile-lamp' : ''}`}
         />
@@ -139,7 +139,7 @@ const HangingLamp = () => {
           onMouseDown={(e) => handleLampMouseDown('lamp2', e)}
         >
           <img 
-            src="/images/hanging_lamp.png" 
+            src={`${process.env.PUBLIC_URL}/images/hanging_lamp.png`}
             alt="Pendant Lamp 2"
             className="lamp-image"
           />
