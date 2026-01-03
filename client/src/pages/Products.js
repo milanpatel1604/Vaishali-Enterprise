@@ -4,12 +4,12 @@ import './Products.css';
 
 const Products = () => {
   const newShades = [
-    { name: 'Acacia Green', image: '/images/products/new_shades/acacia_green.png', color: '#7A9B76' },
-    { name: 'English Green', image: '/images/products/new_shades/english_green.png', color: '#4A6741' },
-    { name: 'Eucalyptus Green', image: '/images/products/new_shades/eucalyptus_green.png', color: '#5F8A73' },
-    { name: 'Khyber Blue', image: '/images/products/new_shades/khyber_blue.png', color: '#4A6B8A' },
-    { name: 'Ocean Blue', image: '/images/products/new_shades/ocean_blue.png', color: '#2C5F7E' },
-    { name: 'Sky Blue', image: '/images/products/new_shades/sky_blue.png', color: '#87CEEB' }
+    { name: 'Acacia Green', image: `${process.env.PUBLIC_URL}/images/products/new_shades/acacia_green.png`, color: '#7A9B76' },
+    { name: 'English Green', image: `${process.env.PUBLIC_URL}/images/products/new_shades/english_green.png`, color: '#4A6741' },
+    { name: 'Eucalyptus Green', image: `${process.env.PUBLIC_URL}/images/products/new_shades/eucalyptus_green.png`, color: '#5F8A73' },
+    { name: 'Khyber Blue', image: `${process.env.PUBLIC_URL}/images/products/new_shades/khyber_blue.png`, color: '#4A6B8A' },
+    { name: 'Ocean Blue', image: `${process.env.PUBLIC_URL}/images/products/new_shades/ocean_blue.png`, color: '#2C5F7E' },
+    { name: 'Sky Blue', image: `${process.env.PUBLIC_URL}/images/products/new_shades/sky_blue.png`, color: '#87CEEB' }
   ];
 
   const laminateDesigns = [
@@ -18,8 +18,8 @@ const Products = () => {
       name: 'Bleached Cork',
       category: 'Natural Textures',
       description: 'A refined natural cork texture with bleached finish, perfect for creating warm, organic spaces with a contemporary twist.',
-      designImage: '/images/products/fancy_usages/Bleeched_cork.png',
-      usageImage: '/images/products/fancy_usages/Bleeched_cork_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Bleeched_cork.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Bleeched_cork_usage.png`,
       features: ['Eco-friendly', 'Sound absorption', 'Warm aesthetic']
     },
     {
@@ -27,8 +27,8 @@ const Products = () => {
       name: 'Brescan Splash',
       category: 'Contemporary',
       description: 'Dynamic splash pattern that brings energy and movement to modern interiors, ideal for statement walls and feature surfaces.',
-      designImage: '/images/products/fancy_usages/brescan_splash.png',
-      usageImage: '/images/products/fancy_usages/brescan_splash_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/brescan_splash.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/brescan_splash_usage.png`,
       features: ['Bold design', 'Modern appeal', 'Unique pattern']
     },
     {
@@ -36,8 +36,8 @@ const Products = () => {
       name: 'Columbian Sepia',
       category: 'Wood Finish',
       description: 'Rich sepia-toned wood grain that adds depth and sophistication to any space, perfect for classic and transitional designs.',
-      designImage: '/images/products/fancy_usages/columbian_sepia.png',
-      usageImage: '/images/products/fancy_usages/columbian_sepia_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/columbian_sepia.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/columbian_sepia_usage.png`,
       features: ['Classic elegance', 'Rich tones', 'Versatile']
     },
     {
@@ -45,8 +45,8 @@ const Products = () => {
       name: 'Designer Collection',
       category: 'Premium',
       description: 'Exclusive designer pattern featuring intricate details and premium finish for luxury interiors and high-end commercial spaces.',
-      designImage: '/images/products/fancy_usages/designer.png',
-      usageImage: '/images/products/fancy_usages/designer_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/designer.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/designer_usage.png`,
       features: ['Luxury finish', 'Intricate details', 'Premium quality']
     },
     {
@@ -54,8 +54,8 @@ const Products = () => {
       name: 'Fade Triton',
       category: 'Contemporary',
       description: 'Subtle fade effect with triton undertones, creating a serene ambiance perfect for modern minimalist and coastal-inspired designs.',
-      designImage: '/images/products/fancy_usages/Fade_triton.png',
-      usageImage: '/images/products/fancy_usages/Fade_triton_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Fade_triton.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Fade_triton_usage.png`,
       features: ['Soft gradients', 'Calming effect', 'Modern minimal']
     },
     {
@@ -63,8 +63,8 @@ const Products = () => {
       name: 'Hellenic Taupe',
       category: 'Neutral Tones',
       description: 'Timeless taupe with Hellenic influences, offering a sophisticated neutral palette that complements any interior style.',
-      designImage: '/images/products/fancy_usages/helenic_taupe.png',
-      usageImage: '/images/products/fancy_usages/helenic_taupe_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/helenic_taupe.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/helenic_taupe_usage.png`,
       features: ['Neutral elegance', 'Timeless', 'Versatile pairing']
     },
     {
@@ -72,8 +72,8 @@ const Products = () => {
       name: 'Smoked Brose Pecan',
       category: 'Wood Finish',
       description: 'Smoky pecan wood with brose finish creates a warm, inviting atmosphere with distinctive character and natural appeal.',
-      designImage: '/images/products/fancy_usages/smoked_brose_pecan.png',
-      usageImage: '/images/products/fancy_usages/smoked_brose_pecan_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/smoked_brose_pecan.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/smoked_brose_pecan_usage.png`,
       features: ['Warm tones', 'Natural grain', 'Distinctive character']
     },
     {
@@ -81,8 +81,8 @@ const Products = () => {
       name: 'Sumatra Chestnut',
       category: 'Wood Finish',
       description: 'Exotic Sumatra chestnut featuring deep, rich tones and authentic wood grain for spaces that demand natural elegance.',
-      designImage: '/images/products/fancy_usages/sumatra_chestnut.png',
-      usageImage: '/images/products/fancy_usages/sumatra_chestnut_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/sumatra_chestnut.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/sumatra_chestnut_usage.png`,
       features: ['Exotic appeal', 'Deep rich tones', 'Authentic grain']
     },
     {
@@ -90,8 +90,8 @@ const Products = () => {
       name: 'Tough Marble',
       category: 'Stone Effect',
       description: 'Durable marble effect laminate combining the luxury of marble with superior toughness, ideal for high-traffic areas.',
-      designImage: '/images/products/fancy_usages/tough_marble.png',
-      usageImage: '/images/products/fancy_usages/tough_marble_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/tough_marble.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/tough_marble_usage.png`,
       features: ['Marble luxury', 'High durability', 'Easy maintenance']
     },
     {
@@ -99,8 +99,8 @@ const Products = () => {
       name: 'Wood Finish Classic',
       category: 'Wood Finish',
       description: 'Timeless wood finish that brings natural warmth and classic beauty, perfect for traditional and contemporary interiors alike.',
-      designImage: '/images/products/fancy_usages/wood_finish.png',
-      usageImage: '/images/products/fancy_usages/wood_finish_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/wood_finish.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/wood_finish_usage.png`,
       features: ['Classic beauty', 'Natural warmth', 'Universal appeal']
     }
   ];

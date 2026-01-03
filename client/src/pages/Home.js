@@ -18,8 +18,8 @@ const Home = ({ onExpertClick }) => {
       name: 'Bleached Cork',
       category: 'Natural Textures',
       description: 'A refined natural cork texture with bleached finish, perfect for creating warm, organic spaces.',
-      designImage: '/images/products/fancy_usages/Bleeched_cork.png',
-      usageImage: '/images/products/fancy_usages/Bleeched_cork_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Bleeched_cork.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/Bleeched_cork_usage.png`,
       features: ['Eco-friendly', 'Sound absorption', 'Warm aesthetic']
     },
     {
@@ -27,8 +27,8 @@ const Home = ({ onExpertClick }) => {
       name: 'Brescan Splash',
       category: 'Contemporary',
       description: 'Dynamic splash pattern that brings energy and movement to modern interiors.',
-      designImage: '/images/products/fancy_usages/brescan_splash.png',
-      usageImage: '/images/products/fancy_usages/brescan_splash_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/brescan_splash.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/brescan_splash_usage.png`,
       features: ['Bold design', 'Modern appeal', 'Unique pattern']
     },
     {
@@ -36,8 +36,8 @@ const Home = ({ onExpertClick }) => {
       name: 'Designer Collection',
       category: 'Premium',
       description: 'Exclusive designer pattern featuring intricate details and premium finish for luxury interiors.',
-      designImage: '/images/products/fancy_usages/designer.png',
-      usageImage: '/images/products/fancy_usages/designer_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/designer.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/designer_usage.png`,
       features: ['Luxury finish', 'Intricate details', 'Premium quality']
     },
     {
@@ -45,8 +45,8 @@ const Home = ({ onExpertClick }) => {
       name: 'Tough Marble',
       category: 'Stone Effect',
       description: 'Durable marble effect laminate combining the luxury of marble with superior toughness.',
-      designImage: '/images/products/fancy_usages/tough_marble.png',
-      usageImage: '/images/products/fancy_usages/tough_marble_usage.png',
+      designImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/tough_marble.png`,
+      usageImage: `${process.env.PUBLIC_URL}/images/products/fancy_usages/tough_marble_usage.png`,
       features: ['Marble luxury', 'High durability', 'Easy maintenance']
     }
   ];
