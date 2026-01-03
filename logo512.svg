@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4d03f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c9a84d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- White background -->
+  <rect width="512" height="512" rx="80" fill="white"/>
+  
+  <!-- Bold V letter with golden gradient -->
+  <path d="M128 96 L256 384 L384 96 L320 96 L256 272 L192 96 Z" fill="url(#goldGradient)"/>
+  
+  <!-- Laminate layers -->
+  <rect x="160" y="400" width="192" height="32" rx="16" fill="#d4af37"/>
+  <rect x="176" y="432" width="160" height="24" rx="12" fill="#c9a84d" opacity="0.7"/>
+  
+  <!-- Border -->
+  <rect width="512" height="512" rx="80" stroke="#d4af37" stroke-width="12" fill="none"/>
+</svg>

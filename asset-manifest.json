@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Vaishali-Enterprise/static/css/main.f75862ba.css",
+    "main.js": "/Vaishali-Enterprise/static/js/main.b09ef0fe.js",
+    "index.html": "/Vaishali-Enterprise/index.html",
+    "main.f75862ba.css.map": "/Vaishali-Enterprise/static/css/main.f75862ba.css.map",
+    "main.b09ef0fe.js.map": "/Vaishali-Enterprise/static/js/main.b09ef0fe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f75862ba.css",
+    "static/js/main.b09ef0fe.js"
+  ]
+}
