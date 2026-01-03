@@ -92,66 +92,13 @@
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px;
-}
-
-.contact-form-wrapper {
-  background: var(--white);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--border-color);
-}
-
-.form-header {
-  margin-bottom: 35px;
-}
-
-.form-header h2 {
-  font-size: 2rem;
-  color: var(--primary-color);
-  margin-bottom: 10px;
-}
-
-.form-header p {
-  color: var(--text-light);
-  font-size: 1.05rem;
-}
-
-.contact-form .form-row {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.contact-form .form-label {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: var(--text-dark);
-}
-
-.contact-form .form-label svg {
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-}
-
-.submit-btn {
-  width: 100%;
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 10px;
 }
 
-.submit-btn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+.quick-contact.full-width {
+  max-width: 1000px;
+  width: 100%;
 }
 
 /* Quick Contact */

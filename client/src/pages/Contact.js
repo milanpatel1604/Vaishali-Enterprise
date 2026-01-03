@@ -1,28 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FaMapMarkerAlt, 
   FaPhone, 
   FaEnvelope, 
   FaWhatsapp,
-  FaClock,
-  FaUser,
-  FaPaperPlane
+  FaClock
 } from 'react-icons/fa';
-import axios from 'axios';
 import './Contact.css';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-  const [loading, setLoading] = useState(false);
-  const [responseMessage, setResponseMessage] = useState({ type: '', text: '' });
-
   const contactInfo = [
     {
       icon: <FaMapMarkerAlt />,
@@ -50,38 +37,6 @@ const Contact = () => {
     }
   ];
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.phone || !formData.subject || !formData.message) {
-      setResponseMessage({ type: 'error', text: 'Please fill in all fields' });
-      return;
-    }
-
-    setLoading(true);
-    setResponseMessage({ type: '', text: '' });
-
-    try {
-      const response = await axios.post('/api/contact', formData);
-      setResponseMessage({ type: 'success', text: response.data.message });
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    } catch (error) {
-      setResponseMessage({ 
-        type: 'error', 
-        text: error.response?.data?.error || 'Something went wrong. Please try again.' 
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="contact-page">
       {/* Page Header */}
@@ -102,117 +57,15 @@ const Contact = () => {
       <section className="contact-form-section section">
         <div className="container">
           <div className="contact-content">
-            {/* Contact Form */}
+            {/* Quick Contact - Now Full Width */}
             <motion.div 
-              className="contact-form-wrapper"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="form-header">
-                <h2>Send Us a Message</h2>
-                <p>Fill out the form below and we'll get back to you as soon as possible</p>
-              </div>
-
-              <form onSubmit={handleSubmit} className="contact-form">
-                {responseMessage.text && (
-                  <div className={`alert alert-${responseMessage.type}`}>
-                    {responseMessage.text}
-                  </div>
-                )}
-
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaUser /> Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaEnvelope /> Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">
-                    <FaPhone /> Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="form-input"
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Subject *</label>
-                  <select
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="form-select"
-                    required
-                  >
-                    <option value="">Select Subject</option>
-                    <option value="General Question">General Question</option>
-                    <option value="Product Inquiry">Product Inquiry</option>
-                    <option value="Quote Request">Quote Request</option>
-                    <option value="Bulk Order">Bulk Order</option>
-                    <option value="Feedback">Feedback</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Message *</label>
-                  <textarea
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="form-textarea"
-                    rows="6"
-                    required
-                  ></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-primary submit-btn" disabled={loading}>
-                  {loading ? 'Sending...' : (
-                    <>
-                      <FaPaperPlane /> Send Message
-                    </>
-                  )}
-                </button>
-              </form>
-            </motion.div>
-
-            {/* Quick Contact */}
-            <motion.div 
-              className="quick-contact"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="quick-contact full-width"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
               <div className="quick-contact-card">
-                <h3>Need Immediate Assistance?</h3>
+                <h3>Get In Touch With Us</h3>
                 <p>Our team is ready to help you with any questions or concerns.</p>
                 
                 <a href="tel:+919574776776" className="quick-contact-item">
@@ -240,7 +93,7 @@ const Contact = () => {
                 </a>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Map */}
               <div className="map-container">
                 <iframe
                   title="Location Map"
