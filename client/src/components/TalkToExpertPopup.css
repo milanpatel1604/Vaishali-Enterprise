@@ -137,13 +137,6 @@
   font-weight: 600;
   color: var(--secondary-color);
 }
-  transition: all 0.3s ease;
-}
-
-.phone-link:hover {
-  color: var(--primary-color);
-  text-decoration: underline;
-}
 
 .divider {
   text-align: center;
