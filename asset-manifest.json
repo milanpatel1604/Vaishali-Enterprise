@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Vaishali-Enterprise/static/css/main.f75862ba.css",
+    "main.css": "/Vaishali-Enterprise/static/css/main.5fb8721d.css",
     "main.js": "/Vaishali-Enterprise/static/js/main.7c23b753.js",
     "index.html": "/Vaishali-Enterprise/index.html",
-    "main.f75862ba.css.map": "/Vaishali-Enterprise/static/css/main.f75862ba.css.map",
+    "main.5fb8721d.css.map": "/Vaishali-Enterprise/static/css/main.5fb8721d.css.map",
     "main.7c23b753.js.map": "/Vaishali-Enterprise/static/js/main.7c23b753.js.map"
   },
   "entrypoints": [
-    "static/css/main.f75862ba.css",
+    "static/css/main.5fb8721d.css",
     "static/js/main.7c23b753.js"
   ]
 }
