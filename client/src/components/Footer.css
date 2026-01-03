@@ -141,6 +141,8 @@
 .footer-contact a {
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .footer-contact a:hover {
