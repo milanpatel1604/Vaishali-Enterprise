@@ -68,6 +68,13 @@ html {
   max-width: 100vw;
 }
 
+html:not(.js-loaded) *,
+html:not(.js-loaded) *::before,
+html:not(.js-loaded) *::after {
+  transition: none !important;
+  animation: none !important;
+}
+
 img {
   max-width: 100%;
   height: auto;
