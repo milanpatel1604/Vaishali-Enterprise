@@ -43,7 +43,7 @@ const Contact = () => {
       <div className="page-header contact-header">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -60,7 +60,7 @@ const Contact = () => {
             {/* Quick Contact - Now Full Width */}
             <motion.div 
               className="quick-contact full-width"
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >

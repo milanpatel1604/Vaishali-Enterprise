@@ -140,7 +140,7 @@ const About = () => {
       <div className="page-header about-header">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -156,7 +156,7 @@ const About = () => {
           <div className="story-content">
             <motion.div 
               className="story-left"
-              initial={{ opacity: 0, x: -50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -178,7 +178,7 @@ const About = () => {
 
             <motion.div 
               className="story-right"
-              initial={{ opacity: 0, x: 50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -199,7 +199,7 @@ const About = () => {
               <motion.div
                 key={index}
                 className="stat-card-new"
-                initial={{ opacity: 0, y: 50 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ 
@@ -246,7 +246,7 @@ const About = () => {
               <motion.div
                 key={index}
                 className="value-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
@@ -274,7 +274,7 @@ const About = () => {
               <motion.div
                 key={index}
                 className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={false}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
@@ -294,9 +294,9 @@ const About = () => {
       <section className="why-section section">
         <div className="container">
           <div className="why-content">
-            <motion.div 
+            <motion.div
               className="why-left"
-              initial={{ opacity: 0, x: -50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -306,9 +306,9 @@ const About = () => {
               />
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="why-right"
-              initial={{ opacity: 0, x: 50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >

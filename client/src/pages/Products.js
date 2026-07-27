@@ -111,7 +111,7 @@ const Products = () => {
       <div className="page-header">
         <div className="container">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
@@ -126,7 +126,7 @@ const Products = () => {
         <div className="container">
           <motion.div
             className="section-header"
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -163,7 +163,7 @@ const Products = () => {
             <motion.article
               key={laminate.id}
               className={`laminate-article ${index % 2 === 0 ? 'reverse' : ''}`}
-              initial={{ opacity: 0, y: 50 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.6, delay: 0.1 }}

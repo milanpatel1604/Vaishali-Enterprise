@@ -108,7 +108,7 @@ const Home = ({ onExpertClick }) => {
         <div className="container hero-container">
           <motion.div 
             className="hero-content"
-            initial={{ opacity: 0, y: 50 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
@@ -128,7 +128,7 @@ const Home = ({ onExpertClick }) => {
             <div className="hero-stats">
               <motion.div 
                 className="stat-item"
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 }}
               >
@@ -137,7 +137,7 @@ const Home = ({ onExpertClick }) => {
               </motion.div>
               <motion.div 
                 className="stat-item"
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
               >
@@ -146,7 +146,7 @@ const Home = ({ onExpertClick }) => {
               </motion.div>
               <motion.div 
                 className="stat-item"
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 }}
               >
@@ -174,7 +174,7 @@ const Home = ({ onExpertClick }) => {
               <motion.div
                 key={index}
                 className="feature-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
@@ -205,7 +205,7 @@ const Home = ({ onExpertClick }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="brand-link"
-                initial={{ opacity: 0, x: -20 }}
+                initial={false}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
@@ -233,7 +233,7 @@ const Home = ({ onExpertClick }) => {
               <motion.div
                 key={laminate.id}
                 className="featured-laminate-card"
-                initial={{ opacity: 0, y: 30 }}
+                initial={false}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
@@ -276,7 +276,7 @@ const Home = ({ onExpertClick }) => {
           <div className="why-choose-content">
             <motion.div 
               className="why-choose-left"
-              initial={{ opacity: 0, x: -50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -301,7 +301,7 @@ const Home = ({ onExpertClick }) => {
 
             <motion.div 
               className="why-choose-right"
-              initial={{ opacity: 0, x: 50 }}
+              initial={false}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
@@ -319,7 +319,7 @@ const Home = ({ onExpertClick }) => {
         <div className="container">
           <motion.div 
             className="cta-content"
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
