@@ -79,7 +79,6 @@ const Home = ({ onExpertClick }) => {
     { name: 'Surfica India', website: 'http://surfica.in/' },
     { name: 'Fasten Laminate', website: 'http://www.fastenlaminate.com/' },
     { name: 'Sarvottam Laminate', website: 'https://www.sarvottamdecor.in/' },
-    { name: 'Abhiyan Laminate', website: 'https://www.abhiyanlam.in/' },
     { name: 'Vee Decor', website: 'https://www.laminatesheets.in/vee-decor-laminate-sheet-5639504.html' },
     { name: 'Alfa Ica', website: 'https://alfaica.com/' },
     { name: 'Airolam Ltd', website: 'https://www.airolam.com/' },
