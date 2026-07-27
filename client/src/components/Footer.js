@@ -30,7 +30,7 @@ const Footer = ({ onExpertClick }) => {
                 Leading supplier of premium A & B grade laminates. 
                 Transform your spaces with our exquisite collection of decorative laminates.
               </p>
-              <div className="social-links">
+              {/* <div className="social-links">
                 <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                   <FaFacebookF />
                 </a>
@@ -43,7 +43,7 @@ const Footer = ({ onExpertClick }) => {
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                   <FaTwitter />
                 </a>
-              </div>
+              </div> */}
             </div>
 
             {/* Quick Links */}
